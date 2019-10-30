@@ -1,3 +1,4 @@
+//business logic
 var leapYear = function(year) {
   if (isNaN(year)) {
     alert("Enter number in field")
@@ -8,11 +9,21 @@ var leapYear = function(year) {
   }
 };
 
+//User interface logic
 $(document).ready(function() {
   $("form#leap-year").submit(function(event) {
     event.preventDefault();
     var year = parseInt($("input#year").val());
     var result = leapYear(year);
-    $("#result").text(result).show();
+
+    $(".year").text(year);
+
+    if (!result) {
+      $(".not").text("not");
+    } else {
+      $(".not").text("");
+    }
+
+    $("#result").show();
   });
 });
